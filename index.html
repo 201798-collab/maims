@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIMS Sustainability Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* SUSTAINABILITY THEME COLORS */
+        :root { 
+            --eco-green: #2E8B57; /* Sea Green */
+            --eco-light: #F0FFF4; /* Very Light Green */
+            --eco-dark: #1a5235; 
+            --eco-accent: #8FBC8F;
+        }
+        
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; padding-bottom: 50px; color: #333; }
+        
+        /* Navbar */
+        .navbar { background: var(--eco-green); padding: 15px 0; border-bottom: 4px solid var(--eco-accent); }
+        .navbar-brand { color: white !important; font-weight: bold; letter-spacing: 1px; }
+        .nav-link { color: rgba(255,255,255,0.9) !important; font-weight: 500; transition: 0.3s; margin: 0 5px; }
+        .nav-link:hover { color: var(--eco-light) !important; text-decoration: underline; }
+
+        /* Page Handling */
+        .page-section { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .active-section { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Cards & Visuals */
+        .content-card { background: white; border-radius: 15px; border: 1px solid #eefae8; overflow: hidden; box-shadow: 0 6px 15px rgba(46, 139, 87, 0.1); margin-bottom: 30px; }
+        .card-img-top { height: 250px; object-fit: cover; }
+        
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0; }
+
+        /* Timeline */
+        .timeline-item { border-left: 4px solid var(--eco-green); padding-left: 20px; margin-bottom: 30px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 0; width: 16px; height: 16px; background: white; border: 4px solid var(--eco-green); border-radius: 50%; }
+
+        /* Buttons */
+        .btn-eco { background: var(--eco-green); color: white; border: none; padding: 12px 30px; border-radius: 25px; transition: 0.3s; }
+        .btn-eco:hover { background: var(--eco-dark); color: white; transform: translateY(-2px); }
+        .btn-outline-eco { border: 2px solid var(--eco-green); color: var(--eco-green); padding: 10px 25px; border-radius: 25px; background: white; }
+        .btn-outline-eco:hover { background: var(--eco-green); color: white; }
+
+        /* Contact Section */
+        .contact-box { padding: 30px; background: var(--eco-light); border-radius: 15px; height: 100%; text-align: center; border: 1px solid var(--eco-accent); }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#" onclick="switchTab('home')">
+            <i class="fas fa-leaf me-2"></i> MAIMS ECO-CLUB
+        </a>
+        <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" onclick="switchTab('who-we-are')">Who We Are</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="switchTab('our-journey')">Our Journey</a></li>
+                <li class="nav-item"><a class="nav-link" onclick="switchTab('updates')">Updates</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" onclick="switchTab('get-involved')">Get Involved</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+
+    <div id="home" class="page-section active-section">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <h1 class="display-4 fw-bold text-success" id="home-title">Loading...</h1>
+                <p class="lead text-muted" id="home-desc">Loading...</p>
+                <button class="btn btn-eco mt-2" onclick="switchTab('get-involved')">Join the Movement</button>
+            </div>
+            <div class="col-lg-6">
+                <img id="home-img" src="" class="img-fluid rounded-4 shadow-lg">
+            </div>
+        </div>
+    </div>
+
+    <div id="who-we-are" class="page-section">
+        <h2 class="mb-4 text-success border-bottom border-success pb-2">Who We Are</h2>
+        <div id="who-content" class="row"></div>
+    </div>
+
+    <div id="our-journey" class="page-section">
+        <h2 class="mb-4 text-success border-bottom border-success pb-2">Our Green Journey</h2>
+        <div id="journey-list" class="ms-2"></div>
+    </div>
+
+    <div id="updates" class="page-section">
+        <h2 class="mb-4 text-success border-bottom border-success pb-2">Latest Activities</h2>
+        <div id="updates-grid" class="row g-4"></div>
+    </div>
+
+    <div id="get-involved" class="page-section">
+        <div class="text-center mb-5">
+            <h2 class="text-success fw-bold">Connect & Collaborate</h2>
+            <p class="text-muted">Be a part of the change. Whether you want to join the team or just share an idea, we are listening.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-5">
+                <div class="contact-box shadow-sm">
+                    <div class="mb-3"><i class="fas fa-users fa-3x text-success"></i></div>
+                    <h3>Join the Team</h3>
+                    <p class="text-muted mb-4">
+                        Passionate about sustainability? We are looking for volunteers, content creators, and eco-warriors.
+                    </p>
+                    <a id="email-join" href="#" class="btn btn-eco w-100">
+                        <i class="fas fa-envelope me-2"></i> Email for Recruitment
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="contact-box shadow-sm">
+                    <div class="mb-3"><i class="fas fa-lightbulb fa-3x text-warning"></i></div>
+                    <h3>Your Voice</h3>
+                    <p class="text-muted mb-4">
+                        Have an idea for a cleaner campus? Or feedback on our last event? Drop a suggestion.
+                    </p>
+                    <a id="email-suggest" href="#" class="btn btn-outline-eco w-100">
+                        <i class="fas fa-paper-plane me-2"></i> Email Suggestion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    
+    // =========================================================
+    // 🟢 EDIT YOUR CONTENT HERE
+    // =========================================================
+
+    // 1. HOME PAGE
+    const homeData = {
+        title: "Sustainability at MAIMS",
+        desc: "Building a greener future, one step at a time. We are dedicated to promoting eco-friendly practices, sustainability awareness, and a cleaner campus environment.",
+        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" // Nature/Campus image
+    };
+
+    // 2. CONTACT EMAILS (The ones you asked for)
+    const emails = {
+        join: "join@maims.edu",      // Email for joining the team
+        suggest: "ideas@maims.edu"   // Email for suggestions/feedback
+    };
+
+    // 3. WHO WE ARE
+    const whoWeAreData = [
+        {
+            title: "Our Mission",
+            text: "To reduce the carbon footprint of our campus and educate students on the importance of sustainable living.",
+            image: "https://images.unsplash.com/photo-1497435334941-8c699ee63e03?w=600",
+            youtubeID: "" 
+        },
+        {
+            title: "The Eco-Council",
+            text: "A group of students committed to organizing plantation drives, recycling workshops, and cleanliness campaigns.",
+            image: "",
+            youtubeID: "dQw4w9WgXcQ" // Example Video ID
+        }
+    ];
+
+    // 4. OUR JOURNEY
+    const journeyData = [
+        { year: "2021", title: "Foundation", text: "Started with a small recycling bin initiative in the cafeteria." },
+        { year: "2023", title: "Campus Clean Drive", text: "Mobilized 200+ students for a massive cleanliness drive." },
+        { year: "2024", title: "Solar Initiative", text: "Proposed solar panel installation for the main block." }
+    ];
+
+    // 5. UPDATES (VLOGS)
+    const updatesData = [
+        { title: "Plantation Drive 2024", youtubeID: "zpOULjyy-n8", date: "March 5, 2024" },
+        { title: "Say No to Plastic", youtubeID: "jNQXAC9IVRw", date: "Feb 10, 2024" },
+        { title: "Eco-Friendly Fest", youtubeID: "dQw4w9WgXcQ", date: "Jan 22, 2024" }
+    ];
+
+
+    // =========================================================
+    // 🔴 SYSTEM CODE (DO NOT EDIT BELOW)
+    // =========================================================
+
+    // Load Home
+    document.getElementById('home-title').innerText = homeData.title;
+    document.getElementById('home-desc').innerText = homeData.desc;
+    document.getElementById('home-img').src = homeData.image;
+
+    // Load Emails
+    document.getElementById('email-join').href = "mailto:" + emails.join;
+    document.getElementById('email-suggest').href = "mailto:" + emails.suggest;
+    document.getElementById('email-join').innerHTML += ` (${emails.join})`;
+    document.getElementById('email-suggest').innerHTML += ` (${emails.suggest})`;
+
+    // Load Who We Are
+    const whoContainer = document.getElementById('who-content');
+    whoWeAreData.forEach(item => {
+        let mediaHTML = item.youtubeID 
+            ? `<div class="video-container"><iframe src="https://www.youtube.com/embed/${item.youtubeID}" allowfullscreen></iframe></div>`
+            : `<img src="${item.image}" class="card-img-top" alt="Image">`;
+
+        whoContainer.innerHTML += `
+        <div class="col-md-6">
+            <div class="content-card">
+                ${mediaHTML}
+                <div class="p-4">
+                    <h4>${item.title}</h4>
+                    <p class="text-muted">${item.text}</p>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    // Load Journey
+    const journeyContainer = document.getElementById('journey-list');
+    journeyData.forEach(item => {
+        journeyContainer.innerHTML += `
+        <div class="timeline-item">
+            <span class="badge bg-success mb-2">${item.year}</span>
+            <h5>${item.title}</h5>
+            <p class="text-muted">${item.text}</p>
+        </div>`;
+    });
+
+    // Load Updates
+    const updatesContainer = document.getElementById('updates-grid');
+    updatesData.forEach(vlog => {
+        updatesContainer.innerHTML += `
+        <div class="col-md-4">
+            <div class="content-card h-100">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/${vlog.youtubeID}" allowfullscreen></iframe>
+                </div>
+                <div class="p-3">
+                    <h6 class="fw-bold mb-1">${vlog.title}</h6>
+                    <small class="text-muted"><i class="far fa-clock"></i> ${vlog.date}</small>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    // Tab Logic
+    function switchTab(tabId) {
+        document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active-section'));
+        document.getElementById(tabId).classList.add('active-section');
+    }
+
+</script>
+</body>
+</html>
