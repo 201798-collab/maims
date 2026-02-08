@@ -46,7 +46,7 @@
 
         .nav-link { color: rgba(255,255,255,0.9) !important; font-weight: 500; transition: 0.3s; margin: 0 5px; }
 
-        .nav-link:hover { color: var(--eco-light) !important; text-decoration: underline; }
+        .nav-link:hover { color: var(--eco-light) !important; text-decoration: underline; cursor: pointer; }
 
 
 
@@ -64,7 +64,7 @@
 
         .content-card { background: white; border-radius: 15px; border: 1px solid #eefae8; overflow: hidden; box-shadow: 0 6px 15px rgba(46, 139, 87, 0.1); margin-bottom: 30px; }
 
-        .card-img-top { height: 250px; object-fit: cover; }
+        .card-img-top { height: 250px; object-fit: contain; }
 
         
 
@@ -110,7 +110,7 @@
 
     <div class="container">
 
-        <a class="navbar-brand" href="#" onclick="switchTab('home')">
+        <a class="navbar-brand" href="#" onclick="switchTab('home'); return false;">
 
             <i class="fas fa-leaf me-2"></i> Jeevanshala
             <br> <h6>(An Initiative by Sustainability Society<br>
@@ -128,15 +128,15 @@
 
             <ul class="navbar-nav">
 
-                <li class="nav-item"><a class="nav-link" onclick="switchTab('who-we-are')">Who We Are</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('who-we-are'); return false;">Who We Are</a></li>
 
-                <li class="nav-item"><a class="nav-link" onclick="switchTab('our-visionaries')">Our Visionaries</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('our-visionaries'); return false;">Our Visionaries</a></li>
 
-                <li class="nav-item"><a class="nav-link" onclick="switchTab('our-journey')">Our Journey</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('our-journey'); return false;">Our Journey</a></li>
 
-                <li class="nav-item"><a class="nav-link" onclick="switchTab('updates')">Updates</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('updates'); return false;">Updates</a></li> -->
 
-                <li class="nav-item"><a class="nav-link fw-bold" onclick="switchTab('get-involved')">Get Involved</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold" href="#" onclick="switchTab('get-involved'); return false;">Get Involved</a></li>
 
             </ul>
 
@@ -170,9 +170,9 @@
 
                 <!-- Auto-scrolling image carousel -->
                 <div id="carousel-container" class="rounded-4 shadow-lg overflow-hidden" style="width:100%; max-width:450px; height:250px; position:relative;">
-                    <img class="carousel-img" src="image1.jpeg" style="width:100%; height:250px; object-fit:cover; position:absolute; left:0; top:0; opacity:1; transition:opacity 0.7s;">
-                    <img class="carousel-img" src="image2.jpeg" style="width:100%; height:250px; object-fit:cover; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
-                    <img class="carousel-img" src="image3.jpeg" style="width:100%; height:250px; object-fit:cover; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+                    <img class="carousel-img" src="image1.jpeg" style="width:100%; height:250px; object-fit:contain; position:absolute; left:0; top:0; opacity:1; transition:opacity 0.7s;">
+                    <img class="carousel-img" src="image2.jpeg" style="width:100%; height:250px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+                    <img class="carousel-img" src="image3.jpeg" style="width:100%; height:250px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
                 </div>
 
             </div>
@@ -194,47 +194,24 @@
                 <div class="content-card p-4" style="background: var(--eco-light);">
                     <h4 class="text-success fw-bold mb-3">Student Volunteers</h4>
                     <ul class="list-unstyled ms-2">
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span> Bhavya Goel
-,BBA</li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Anushka Singh
-,Bcom (H)
- </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span> Manishika 
-,BBA LLB
-</li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Sushant kumar
- ,BA LLB 
- </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Rishi Jainwal
- ,BA LLB 
-</li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Mehak
- ,BBA </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Akshita Bansal
- ,Eco(H)</li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Mannat ,BBA
- </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Ananya Jain
- ,BBA </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Tamanna Jain
- ,BBA </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Navya Jain
- ,BBA </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Charika Taneja 
- ,BA (EcoH) </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Tanisha Aggarwal ,BBA </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Harshita Goel
- ,BBA </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Niyasa ,Economics (H) </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Kriti Sharma 
- ,BBA </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Vibhu Chopra 
- ,Btech CSE - AI
- </li>
-                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Jiya Malhotra ,BBA </li>
-
-
-                        <!-- Add more names as needed -->
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span> Bhavya Goel, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Anushka Singh, Bcom (H)</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span> Manishika, BBA LLB</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Sushant kumar, BA LLB</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Rishi Jainwal, BA LLB</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Mehak, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Akshita Bansal, Eco(H)</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Mannat, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Ananya Jain, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Tamanna Jain, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Navya Jain, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Charika Taneja, BA (EcoH)</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Tanisha Aggarwal, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Harshita Goel, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Niyasa, Economics (H)</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Kriti Sharma, BBA</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Vibhu Chopra, Btech CSE - AI</li>
+                        <li class="mb-2"><span style="color:gold;">&#9733;</span>Jiya Malhotra, BBA</li>
                     </ul>
                 </div>
             </div>
@@ -283,7 +260,6 @@
                 <img src="Leader3.jpeg" alt="Leader 3" class="img-fluid rounded-4 shadow-lg" style="max-width: 320px; height: auto;">
 
                 <h5 class="mt-3 mb-1 fw-bold">PROF. (DR.) RAJNI MALHOTRA DHINGRA</h5>
-      
 
                 <div class="text-muted">DIRECTOR - MAIMS</div>
 
@@ -293,15 +269,14 @@
 
                 <img src="Leader4.jpeg" alt="Leader 4" class="img-fluid rounded-4 shadow-lg" style="max-width: 320px; height: auto;">
 
-      
-                   <h5 class="mt-3 mb-1 fw-bold">Prof. (DR.) Manoj Verma</h5>
+                <h5 class="mt-3 mb-1 fw-bold">Prof. (DR.) Manoj Verma</h5>
 
                 <div class="text-muted">HOD, Dpt. of Business Administration</div>
 
             </div>
 
         </div>
- <div class="mt-5 mb-2">
+        <div class="mt-5 mb-2">
             <h4 class="text-success fw-bold text-center">Faculty Coordinators</h4>
         </div>
 
@@ -330,6 +305,17 @@
     <div id="our-journey" class="page-section">
 
         <h2 class="mb-4 text-success border-bottom border-success pb-2">Our Green Journey</h2>
+
+        <!-- Auto-scrolling image carousel for Our Journey -->
+        <div id="journey-carousel-container" class="rounded-4 shadow-lg overflow-hidden mx-auto mb-4" style="width:100%; max-width:600px; height:350px; position:relative;">
+            <img class="journey-carousel-img" src="journey1.jpeg" style="width:100%; height:350px; object-fit:contain; position:absolute; left:0; top:0; opacity:1; transition:opacity 0.7s;">
+            <img class="journey-carousel-img" src="journey2.jpeg" style="width:100%; height:350px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+            <img class="journey-carousel-img" src="journey3.jpeg" style="width:100%; height:350px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+            <img class="journey-carousel-img" src="journey4.jpeg" style="width:100%; height:350px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+            <img class="journey-carousel-img" src="journey5.jpeg" style="width:100%; height:350px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+            <img class="journey-carousel-img" src="journey6.jpeg" style="width:100%; height:350px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+            <img class="journey-carousel-img" src="journey7.jpeg" style="width:100%; height:350px; object-fit:contain; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+        </div>
 
         <div id="journey-list" class="ms-2"></div>
 
@@ -397,15 +383,8 @@
 
                     <p class="text-muted mb-4">
 
-                Your Voice Matters.
+                        Your Voice Matters. We believe the best ideas come from collaboration. Have a question, suggestion, or creative idea? Want to propose a project or highlight an environmental issue? Share your thoughts with us and help shape the direction of our club. Together, we can learn, innovate, and grow.
 
-                We believe the best ideas come from collaboration. 
-                Have a question, suggestion, or creative idea? Want to propose a project or highlight an environmental issue?
-
-                 Share your thoughts with us and help shape the direction of our club.
-                Together, we can learn, innovate, and grow.
-
-                👉 Drop your message—we’re listening.
                     </p>
 
                     <a id="email-suggest" href="#" class="btn btn-outline-eco w-100">
@@ -428,18 +407,11 @@
 
                 <h3>Suggestions</h3>
 
-                <p class="text-muted mb-4">Support Change. Fuel Creativity. Sustain the Future.
+                <p class="text-muted mb-4">Support Change. Fuel Creativity. Sustain the Future. Your contribution helps us transform ideas into action.</p>
 
-                            Your contribution helps us transform ideas into action. Every donation supports sustainability projects, creative workshops, community outreach programs, and student-led innovations that create real impact.
+                <a id="donate-link2" href="https://forms.gle/uKNNPo6ABwq4XHvv6" target="_blank" class="btn btn-outline-eco w-100">
 
-
-                      Build a sustainable and inclusive future  
-                       <a href="https://forms.gle/cunkVDqCrecsQvsK7" target="_blank" rel="noopener noreferrer">give your suggestions</a>
-    </p>
-
-                <a id="donate-link2" href="#" class="btn btn-outline-eco w-100">
-
-                    <i class="fas fa-hand-holding-usd me-2"></i>https://forms.gle/cunkVDqCrecsQvsK7 
+                    <i class="fas fa-hand-holding-usd me-2"></i> Submit Form
 
                 </a>
 
@@ -475,21 +447,19 @@
 
         title: "Change for Good", 
 
-        desc: "A community-driven initiative committed to promoting sustainability through awareness, innovation, and collaboration.",
-
-        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800" // Nature/Campus image
+        desc: "A community-driven initiative committed to promoting sustainability through awareness, innovation, and collaboration."
 
     };
 
 
 
-    // 2. CONTACT EMAILS (The ones you asked for)
+    // 2. CONTACT EMAILS
 
     const emails = {
 
-        join: "sustainabilitysociety@maims.ac.in",      // Email for joining the team
+        join: "sustainabilitysociety@maims.ac.in",
 
-        suggest: "sustainabilitysociety@maims.ac.in"   // Email for suggestions/feedback
+        suggest: "sustainabilitysociety@maims.ac.in"
 
     };
 
@@ -503,9 +473,9 @@
 
             title: "Our Mission",
 
-            text: "Our Mission: To inspire awareness, action, and innovation for sustainable development by blending creativity with social and environmental consciousness.,action, and innovation for sustainable development by blending creativity with social and environmental consciousness.",
+            text: "Our Mission: To inspire awareness, action, and innovation for sustainable development by blending creativity with social and environmental consciousness.",
 
-            
+            youtubeID: ""
 
         },
 
@@ -513,11 +483,9 @@
 
             title: "Our Vision",
 
-            text: "To build a future where education and knowledge leads to sustainable solutions and responsible living becomes a way of life.A group of students committed to organizing plantation drives, recycling workshops, and cleanliness campaigns.",
+            text: "To build a future where education and knowledge leads to sustainable solutions and responsible living becomes a way of life.",
 
-            image: "",
-
-            youtubeID: "KSXuB9QXgk8" // Example Video ID
+            youtubeID: "KSXuB9QXgk8"
 
         }
 
@@ -569,23 +537,21 @@
 
     document.getElementById('home-desc').innerText = homeData.desc;
 
-    // Hide the old static image if present
-    var oldImg = document.getElementById('home-img');
-    if (oldImg) oldImg.style.display = 'none';
+    
 
-    // Carousel logic
+    // Carousel logic for home
     const carouselImgs = document.querySelectorAll('#carousel-container .carousel-img');
     let carouselIndex = 0;
-    setInterval(() => {
-        carouselImgs.forEach((img, i) => {
-            img.style.opacity = (i === carouselIndex) ? '1' : '0';
-        });
-        carouselIndex = (carouselIndex + 1) % carouselImgs.length;
-    }, 2500);
+    if (carouselImgs.length > 0) {
+        setInterval(() => {
+            carouselImgs.forEach((img, i) => {
+                img.style.opacity = (i === carouselIndex) ? '1' : '0';
+            });
+            carouselIndex = (carouselIndex + 1) % carouselImgs.length;
+        }, 2500);
+    }
 
-
-
-    // Load Emails
+    
 
     document.getElementById('email-join').href = "mailto:" + emails.join;
 
@@ -607,7 +573,7 @@
 
             ? `<div class="video-container"><iframe src="https://www.youtube.com/embed/${item.youtubeID}" allowfullscreen></iframe></div>`
 
-            : ``;
+            : '';
 
 
 
@@ -637,23 +603,23 @@
 
     // Load Journey
 
-    const journeyContainer = document.getElementById('journey-list');
+    // const journeyContainer = document.getElementById('journey-list');
 
-    journeyData.forEach(item => {
+    // journeyData.forEach(item => {
 
-        journeyContainer.innerHTML += `
+    //     journeyContainer.innerHTML += `
 
-        <div class="timeline-item">
+    //     <div class="timeline-item">
 
-            <span class="badge bg-success mb-2">${item.year}</span>
+    //         <span class="badge bg-success mb-2">${item.year}</span>
 
-            <h5>${item.title}</h5>
+    //         <h5>${item.title}</h5>
 
-            <p class="text-muted">${item.text}</p>
+    //         <p class="text-muted">${item.text}</p>
 
-        </div>`;
+    //     </div>`;
 
-    });
+    // });
 
 
 
@@ -691,16 +657,44 @@
 
 
 
-    // Tab Logic
-
-    function switchTab(tabId) {
+    // Tab Logic - Main function
+    window.switchTab = function(tabId) {
 
         document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active-section'));
 
         document.getElementById(tabId).classList.add('active-section');
 
-    }
+        
 
+        // Start journey carousel when Our Journey tab is shown
+        if (tabId === 'our-journey') {
+            startJourneyCarousel();
+        }
+    };
+
+    
+
+    // Journey carousel initialization
+    let journeyCarouselStarted = false;
+    function startJourneyCarousel() {
+        if (journeyCarouselStarted) return;
+        journeyCarouselStarted = true;
+        
+        const journeyCarouselImgs = document.querySelectorAll('#journey-carousel-container .journey-carousel-img');
+        if (journeyCarouselImgs.length === 0) return;
+        
+        let journeyCarouselIndex = 0;
+        journeyCarouselImgs.forEach((img, i) => {
+            img.style.opacity = (i === 0) ? '1' : '0';
+        });
+        
+        setInterval(() => {
+            journeyCarouselImgs.forEach((img, i) => {
+                img.style.opacity = (i === journeyCarouselIndex) ? '1' : '0';
+            });
+            journeyCarouselIndex = (journeyCarouselIndex + 1) % journeyCarouselImgs.length;
+        }, 2500);
+    }
 
 
 </script>
