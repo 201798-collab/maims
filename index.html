@@ -399,21 +399,45 @@
 
         </div>
 
-        <div class="text-center mb-4">
+        <div class="row g-4 justify-content-center">
 
-            <div class="contact-box shadow-sm d-inline-block" style="min-width:320px;max-width:420px;">
+            <div class="col-md-5">
 
-                <div class="mb-3"><i class="fas fa-donate fa-3x text-primary"></i></div>
+                <div class="contact-box shadow-sm">
 
-                <h3>Suggestions</h3>
+                    <div class="mb-3"><i class="fas fa-donate fa-3x text-primary"></i></div>
 
-                <p class="text-muted mb-4">Support Change. Fuel Creativity. Sustain the Future. Your contribution helps us transform ideas into action.</p>
+                    <h3>Suggestions</h3>
 
-                <a id="donate-link2" href="https://forms.gle/uKNNPo6ABwq4XHvv6" target="_blank" class="btn btn-outline-eco w-100">
+                    <p class="text-muted mb-4">Support Change. Fuel Creativity. Sustain the Future.</p>
 
-                    <i class="fas fa-hand-holding-usd me-2"></i> Submit Form
+                    <a id="donate-link2" href="https://forms.gle/uKNNPo6ABwq4XHvv6" target="_blank" class="btn btn-outline-eco w-100">
 
-                </a>
+                        <i class="fas fa-hand-holding-usd me-2"></i> Submit Form
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-5">
+
+                <div class="contact-box shadow-sm">
+
+                    <div class="mb-3"><i class="fas fa-heart fa-3x text-danger"></i></div>
+
+                    <h3 id="donate-heading">Donate</h3>
+
+                    <p id="donate-text" class="text-muted mb-4">Support Change. Fuel Creativity. Sustain the Future. Your contribution helps us transform ideas into action.</p>
+
+                    <a id="donate-link" href="https://forms.gle/uKNNPo6ABwq4XHvv6" target="_blank" class="btn btn-outline-eco w-100">
+
+                        <i class="fas fa-heart me-2"></i> <span id="donate-button-text">Donate Now</span>
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -460,6 +484,22 @@
         join: "sustainabilitysociety@maims.ac.in",
 
         suggest: "sustainabilitysociety@maims.ac.in"
+
+    };
+
+
+
+    // 2b. DONATE SECTION
+
+    const donateData = {
+
+        heading: "Donate",
+
+        text: " Your contribution helps us transform ideas into action.",
+
+        link: "https://forms.gle/fb6PY7313YqduUJD8",
+
+        buttonText: "Donate Now"
 
     };
 
@@ -560,6 +600,18 @@
     document.getElementById('email-join').innerHTML += ` (${emails.join})`;
 
     document.getElementById('email-suggest').innerHTML += ` (${emails.suggest})`;
+
+
+
+    // Load Donate Section
+
+    document.getElementById('donate-heading').innerText = donateData.heading;
+
+    document.getElementById('donate-text').innerText = donateData.text;
+
+    document.getElementById('donate-link').href = donateData.link;
+
+    document.getElementById('donate-button-text').innerText = donateData.buttonText;
 
 
 
