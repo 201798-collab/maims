@@ -134,7 +134,7 @@
 
                 <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('our-journey'); return false;">Our Journey</a></li>
 
-                <!-- <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('updates'); return false;">Updates</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('updates'); return false;">Latest Updates</a></li>
 
                 <li class="nav-item"><a class="nav-link fw-bold" href="#" onclick="switchTab('get-involved'); return false;">Get Involved</a></li>
 
@@ -345,9 +345,19 @@
 
     <div id="updates" class="page-section">
 
-        <h2 class="mb-4 text-success border-bottom border-success pb-2">Latest Activities</h2>
+        <h2 class="mb-4 text-success border-bottom border-success pb-2">Latest Updates</h2>
 
-        <div id="updates-grid" class="row g-4"></div>
+        <div id="updates-carousel-container" class="rounded-4 shadow-lg overflow-hidden mx-auto mb-4" style="width:100%; max-width:600px; height:400px; position:relative;">
+            <div class="updates-carousel-item" style="width:100%; height:400px; position:absolute; left:0; top:0; opacity:1; transition:opacity 0.7s;">
+                <img id="update-img-0" src="update1.jpeg" style="width:100%; height:400px; object-fit:cover;">
+            </div>
+            <div class="updates-carousel-item" style="width:100%; height:400px; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+                <img id="update-img-1" src="update2.jpeg" style="width:100%; height:400px; object-fit:cover;">
+            </div>
+            <div class="updates-carousel-item" style="width:100%; height:400px; position:absolute; left:0; top:0; opacity:0; transition:opacity 0.7s;">
+                <img id="update-img-2" src="update3.jpeg" style="width:100%; height:400px; object-fit:cover;">
+            </div>
+        </div>
 
     </div>
 
@@ -567,15 +577,15 @@
 
 
 
-    // 5. UPDATES (VLOGS)
+    // 5. UPDATES (IMAGES)
 
     const updatesData = [
 
-        { title: "Plantation Drive 2024", youtubeID: "KSXuB9QXgk8", date: "March 5, 2024" },
+        { title: "Plantation Drive 2024", image: "update1.jpeg", caption: "Our community planting trees for a greener future" },
 
-        { title: "Say No to Plastic", youtubeID: "KSXuB9QXgk8", date: "Feb 10, 2024" },
+        { title: "Say No to Plastic", image: "update2.jpeg", caption: "Spreading awareness about plastic pollution" },
 
-        { title: "Eco-Friendly Fest", youtubeID: "KSXuB9QXgk8", date: "Jan 22, 2024" }
+        { title: "Eco-Friendly Fest", image: "update3.jpeg", caption: "Celebrating sustainability with our community" }
 
     ];
 
@@ -697,34 +707,8 @@
 
     // Load Updates
 
-    const updatesContainer = document.getElementById('updates-grid');
-
-    updatesData.forEach(vlog => {
-
-        updatesContainer.innerHTML += `
-
-        <div class="col-md-4">
-
-            <div class="content-card h-100">
-
-                <div class="video-container">
-
-                    <iframe src="https://www.youtube.com/embed/${vlog.youtubeID}" allowfullscreen></iframe>
-
-                </div>
-
-                <div class="p-3">
-
-                    <h6 class="fw-bold mb-1">${vlog.title}</h6>
-
-                    <small class="text-muted"><i class="far fa-clock"></i> ${vlog.date}</small>
-
-                </div>
-
-            </div>
-
-        </div>`;
-
+    updatesData.forEach((update, index) => {
+        document.getElementById(`update-img-${index}`).src = update.image;
     });
 
 
@@ -741,6 +725,11 @@
         // Start journey carousel when Our Journey tab is shown
         if (tabId === 'our-journey') {
             startJourneyCarousel();
+        }
+        
+        // Start updates carousel when Latest Updates tab is shown
+        if (tabId === 'updates') {
+            startUpdatesCarousel();
         }
     };
 
@@ -766,6 +755,28 @@
             });
             journeyCarouselIndex = (journeyCarouselIndex + 1) % journeyCarouselImgs.length;
         }, 2500);
+    }
+
+    // Updates carousel initialization
+    let updatesCarouselStarted = false;
+    function startUpdatesCarousel() {
+        if (updatesCarouselStarted) return;
+        updatesCarouselStarted = true;
+        
+        const updatesCarouselItems = document.querySelectorAll('#updates-carousel-container .updates-carousel-item');
+        if (updatesCarouselItems.length === 0) return;
+        
+        let updatesCarouselIndex = 0;
+        updatesCarouselItems.forEach((item, i) => {
+            item.style.opacity = (i === 0) ? '1' : '0';
+        });
+        
+        setInterval(() => {
+            updatesCarouselItems.forEach((item, i) => {
+                item.style.opacity = (i === updatesCarouselIndex) ? '1' : '0';
+            });
+            updatesCarouselIndex = (updatesCarouselIndex + 1) % updatesCarouselItems.length;
+        }, 3000);
     }
 
 
